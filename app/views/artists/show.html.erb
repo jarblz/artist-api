@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Handle:</strong>
+  <%= @artist.handle %>
+</p>
+
+<p>
+  <strong>Url:</strong>
+  <%= @artist.url %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @artist.name %>
+</p>
+
+<p>
+  <strong>Bio:</strong>
+  <%= @artist.bio %>
+</p>
+
+<p>
+  <strong>Members:</strong>
+  <%= @artist.members %>
+</p>
+
+<p>
+  <strong>Website:</strong>
+  <%= @artist.website %>
+</p>
+
+<p>
+  <strong>Wiki page:</strong>
+  <%= @artist.wiki_page %>
+</p>
+
+<p>
+  <strong>Donation url:</strong>
+  <%= @artist.donation_url %>
+</p>
+
+<p>
+  <strong>Tags:</strong>
+  <%= @artist.tags %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @artist.location %>
+</p>
+
+<%= link_to 'Edit', edit_artist_path(@artist) %> |
+<%= link_to 'Back', artists_path %>
