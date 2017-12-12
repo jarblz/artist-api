@@ -2,18 +2,21 @@
 <html>
 <head>
   <title>Artist Api</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <!-- Latest compiled and minified JavaScript -->
+  <%= javascript_include_tag 'application' %>
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+
+  <!-- Latest compiled and minified JavaScript -->
   <%= csrf_meta_tags %>
   <!-- this is always required for mobile responsiveness! -->
   <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+  <%= render 'layouts/nav' %>
+  <%= render 'layouts/notification' %>
   <%= yield %>
   <%= render 'layouts/google_analytics' %>
+
 </body>
 </html>

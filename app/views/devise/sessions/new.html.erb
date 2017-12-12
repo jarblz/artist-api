@@ -1,26 +1,27 @@
-<h2>Log in</h2>
+<div class="devise-container">
+  <h2 class='header'>Log in</h2>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <% if devise_mapping.rememberable? -%>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: { :class => "form-horizontal center" }) do |f| %>
+    <div class="form-group">
+      <%= f.label :email, class: "col-md-4 control-label" %>
+      <div class="col-md-8">
+        <%= f.email_field :email, autofocus: true, class: "form-control"  %>
+      </div>
     </div>
-  <% end -%>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
+    <div class="form-group">
+      <%= f.label :password, class: "col-md-4 control-label" %>
+      <div class="col-md-8">
+        <%= f.password_field :password, autocomplete: "off", class: "form-control"  %>
+      </div>
+    </div>
 
-<%= render "devise/shared/links" %>
+    <div class="actions">
+      <%= f.submit "Log in", class: "btn btn-default btn-primary" %><br>
+      <div style="margin:auto; display:table; margin-bottom:10px;">
+        - or -
+      </div>
+      <%= link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2), class: "btn btn-default btn-primary" %>
+    </div>
+  <% end %>
+</div>

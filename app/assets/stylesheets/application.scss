@@ -1,3 +1,49 @@
 // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
+$purple: #351c75;
+
+@font-face {
+  font-family: "Publica Reg";
+  src: font-url("PublicaPlay-Regular.otf") format("truetype");
+}
+
+.alert {
+  position: absolute;
+}
+.notice {
+  position: absolute;
+}
+
+
+body {
+  font-family: publica reg;
+  background-color: $purple;
+  color: #333;
+}
+
+.navbar {
+  padding: 0px 4%;
+}
+
+.devise-container {
+  .header {
+    display: table;
+    margin: auto;
+    margin-bottom: 20px;
+  }
+  padding: 30px 11%;
+  background: white;
+  width: 80%;
+  display: table;
+  margin: auto;
+  border-radius: 5px;
+}
+nav {
+  background: white;
+}
+.btn-primary {
+  display: table;
+  margin: auto;
+}

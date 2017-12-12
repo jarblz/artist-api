@@ -1,29 +1,38 @@
-<h2>Sign up</h2>
+<div class="devise-container">
+  <h2>Sign up</h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { :class => "form-horizontal center" }) do |f| %>
+    <%= devise_error_messages! %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
+    <div class="field">
+      <%= f.label :email, class: "col-md-4 control-label" %>
+      <div class="col-md-8">
+        <%= f.email_field :email, autofocus: true, class: "form-control"  %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @validatable %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
+    <div class="field">
+      <%= f.label :password, class: "col-md-4 control-label" %>
+      <div class="col-md-8">
+        <%= f.password_field :password, autocomplete: "off", class: "form-control"  %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
+    <div class="field">
+      <%= f.label :password_confirmation, class: "col-md-4 control-label" %><br />
+      <div class="col-md-8">
+        <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control"  %>
+      </div>
+    </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
+    <div class="actions">
+      <%= f.submit "Sign up", class: "btn btn-default btn-primary" %>
+      <div style="margin:auto; display:table; margin-bottom:10px;">
+        - or -
+      </div>
+      <%= link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2), class: "btn btn-default btn-primary" %>
 
-<%= render "devise/shared/links" %>
+    </div>
+  <% end %>
+
+</div>

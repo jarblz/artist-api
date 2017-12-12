@@ -11,11 +11,15 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery.turbolinks
 //= require jquery_ujs
+//= require react
+//= require react_ujs
+//= require react-autocomplete
+//= require components
 //= require_tree .
-//= require turbolinks
 
 $(document).ready(function() {
 	// Use .ready to ensure turbolinks works properly
-})
+	$(".alert").fadeTo(2000, 500).fadeOut(500);
+
+});
