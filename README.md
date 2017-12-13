@@ -24,7 +24,9 @@ There are tests for the 2 api endpoints that I created
 
 ## Installation
 
-Clone the repo, rake db:create, migrate, and seed
+1. Clone the repo
+2. email me and ask for the .env file (jaredables@gmail.com)
+3. rake db:create, migrate, and seed
 
 ## Features that were left out, as I didn't have time to finish them
 
