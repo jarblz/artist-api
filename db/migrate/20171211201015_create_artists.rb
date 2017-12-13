@@ -11,6 +11,7 @@ class CreateArtists < ActiveRecord::Migration
       t.string :donation_url
       t.string :tags
       t.string :location
+      t.string :image_url
 
       t.timestamps null: false
     end

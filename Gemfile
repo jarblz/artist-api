@@ -24,9 +24,9 @@ gem 'omniauth'
 
 gem 'omniauth-google-oauth2'
 
-# using reactjs for my autocomplete component
-gem 'react-rails', '~> 1.0'
-gem 'npm-pipeline-rails'
+gem 'twitter-typeahead-rails'
+
+gem "rest-client"
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

@@ -1,1 +1,93 @@
-<%= react_component 'Search' %>
+<div class="container">
+  <div class="form-group">
+    <input type="text" class='form-control' id='search' placeholder="type to filter">
+  </div>
+  <div class="results">
+    <div class="prompt">
+      <div class="heading">Enter 3+ characters to search artists.</div>
+    </div>
+    <div class="loading" hidden>
+      <div class="loader"></div>
+    </div>
+    <div class="complete">
+    </div>
+  </div>
+
+
+</div>
+
+<script type="text/javascript">
+
+$( "#search" ).keyup(function() {
+  // hand-rolled custom search feature
+  filterValue = $('#search').val()
+  if(filterValue.length>2) {
+    searchArtists(filterValue);
+  } else {
+    resetPrompt();
+  }
+});
+
+function searchArtists(filterValue) {
+  $.ajax({
+    type: 'GET',
+    dataType: 'json',
+    url: `<%= escape_javascript api_search_url %>?term=${filterValue}`,
+    success: function(data) {
+      populateResults(data);
+    }
+  });
+
+}
+
+function populateResults(data){
+  $('.heading').text(`Results (${data.length})`);
+  html = "";
+  $.each(data, function (key,val) {
+    var key = key;
+    var url = val.website || val.donation_url || val.url
+    var imageUrl = val.image_url || "https://www.iconexperience.com/_img/g_collection_png/standard/512x512/singer.png"
+    if(!checkURL(imageUrl)){
+      imageUrl = "https://www.iconexperience.com/_img/g_collection_png/standard/512x512/singer.png"
+    }
+    html += `<div class="row">`;
+    html +=   `<div class="avatar col-sm-6">`;
+    html +=     `<img src="`+imageUrl+`" alt="">`;
+    html +=   `</div>`;
+    html +=   `<div class="information col-sm-6">`
+    html +=     `<div class="info-item"><u>Name/Handle</u>: `+ val.name || val.handle +`</div>`
+    html +=     `<div class="info-item"><u>Url</u>: <a href="`+url+`">`+truncateString(url,25)+`</a></div>`
+    html +=     `<div class="info-item"><u>Members</u>: `+val.members+`</div>`
+    html +=     `<div class="info-item"><u>Tags</u>: `+val.tags+`</div>`
+    html +=   `</div>`
+    html += `</div>`
+    html += `</div>`
+    if(key != data.length-1){
+      html += `<div class="divider"></div>`
+    }
+  });
+  $('.complete').html(html);
+}
+
+function resetPrompt(){
+  $('.heading').text('Enter 3+ characters to search artists.');
+  $('.complete').html('');
+}
+
+function truncateString(str, num) {
+  if (num > str.length){
+    return str
+  } else {
+    return str.slice(0,num) + "...";
+  }
+
+}
+
+function checkURL(url) {
+    return(url.match(/\.(jpeg|jpg|gif|png)$/) != null);
+}
+
+
+
+
+</script>

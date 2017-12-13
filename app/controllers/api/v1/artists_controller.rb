@@ -19,6 +19,9 @@ module Api
         render json: artists, status: :ok
 
       end
+      
+      # TODO: if i had more time, add the rest of the CRUD operations for the artists resource
+
 
       private
 

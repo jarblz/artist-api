@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20171212011943) do
     t.string   "donation_url"
     t.string   "tags"
     t.string   "location"
+    t.string   "image_url"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end

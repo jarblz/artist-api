@@ -7,9 +7,9 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: { format: 'json' } do
     scope module: :v1, constraints: ApiConstraints.new(version: 1, default: :true) do
-      get 'artists', to: 'artists#index'
-      get '/search', to: 'artists#search'
-      # TODO: add the rest of the CRUD operations for the artists resource
+      get 'artists', to: 'artists#index', as: 'index'
+      get '/search', to: 'artists#search', as: 'search'
+      # TODO: if i had more time, add the rest of the CRUD operations for the artists resource
     end
   end
 

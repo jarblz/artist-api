@@ -11,6 +11,12 @@ url = File.join(Rails.root, "lib/tasks", "artists.json")
 artists = JSON.parse(File.read(url))['artists']
 
 artists.each do |artist|
+  if artist['artist_images']
+    image_url = artist['artist_images'].first['image_source']
+  else
+    image_url = nil
+  end
+
   tags = artist['tags'].join(", ")
   Artist.create!(
     handle: artist['artist_handle'],
@@ -22,6 +28,7 @@ artists.each do |artist|
     wiki_page: artist['artist_wikipedia_page'],
     donation_url: artist['artist_donation_url'],
     tags: tags,
-    location: artist['artist_location']
+    location: artist['artist_location'],
+    image_url: image_url
   )
 end

@@ -12,10 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require react
-//= require react_ujs
-//= require react-autocomplete
-//= require components
+//= require twitter/typeahead
+//= require twitter/typeahead.min
 //= require_tree .
 
 $(document).ready(function() {

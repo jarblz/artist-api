@@ -2,6 +2,8 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+@import "typeahead";
+
 $purple: #351c75;
 
 @font-face {
@@ -46,4 +48,79 @@ nav {
 .btn-primary {
   display: table;
   margin: auto;
+}
+
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+  display: table;
+  margin: auto;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.results {
+  width: 90%;
+  background: white;
+  border-radius: 5px;
+  display: table;
+  margin: auto;
+  padding: 30px 10%;
+  overflow: hidden;
+}
+.heading {
+  font-size: 25px;
+  display: table;
+  margin: auto;
+  margin-bottom: 30px;
+}
+.complete {
+  img {
+    max-width: 80%;
+    display: table;
+    margin: auto;
+    border-radius: 10px;
+  }
+}
+.information {
+  padding: 10px;
+  font-size: 20px;
+  .info-item {
+    line-height: 35px;
+    .label{
+      font-size: 22px;
+    }
+  }
+}
+.row {
+  padding-bottom: 30px;
+  padding-top: 30px;
+}
+
+.navbar-right {
+  display: inline-block;
+  float: right;
+}
+.navbar {
+  border-radius: 0px;
+}
+.divider {
+  border-bottom: dashed 2px;
+  position: relative;
+  width: 1000%;
+  left: -200%;
 }

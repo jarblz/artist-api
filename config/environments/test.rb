@@ -1,3 +1,4 @@
+Rails.application.routes.default_url_options[:host]= 'localhost:3000'
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
@@ -7,6 +8,8 @@ Rails.application.configure do
   # and recreated between test runs. Don't rely on the data there!
   config.cache_classes = true
 
+  config.routes.default_url_options[:host]= 'localhost:3000'
+
   # Do not eager load code on boot. This avoids loading your whole application
   # just for the purpose of running a single test. If you are using a tool that
   # preloads Rails for running tests, you may have to set it to true.
@@ -15,7 +18,7 @@ Rails.application.configure do
   # Configure static file server for tests with Cache-Control for performance.
   config.serve_static_files   = true
   config.static_cache_control = 'public, max-age=3600'
-
+  config.action_mailer.default_url_options = { host: 'localhost', port: ENV['PORT'] }
   # Show full error reports and disable caching.
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
