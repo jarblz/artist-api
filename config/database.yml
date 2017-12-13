@@ -80,6 +80,4 @@ test:
 #
 production:
   <<: *default
-  database: artist_api_production
-  username: artist_api
-  password: <%= ENV['ARTIST_API_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
