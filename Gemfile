@@ -24,8 +24,6 @@ gem 'omniauth'
 
 gem 'omniauth-google-oauth2'
 
-gem 'twitter-typeahead-rails'
-
 gem "rest-client"
 
 # Use jquery as the JavaScript library
